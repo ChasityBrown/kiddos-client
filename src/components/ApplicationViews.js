@@ -1,5 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { GameList } from "./games/GameList"
+import { GameForm } from "./games/GameForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -8,16 +10,16 @@ export const ApplicationViews = () => {
             backgroundColor: "lightgoldenrodyellow",
             lineHeight: "1.75rem"
         }}>
-            {/* <Route exact path="/games">
+            <Route exact path="/games">
                 <GameList />
             </Route>
             <Route exact path="/games/new">
                 <GameForm />
             </Route>
-            <Route exact path="/games/:gameId(\d+)/update">
+            {/* <Route exact path="/games/:gameId(\d+)/update">
                 <UpdateGameForm />
-            </Route>
-            <Route exact path="/rooms">
+            </Route> */}
+            {/* <Route exact path="/rooms">
                 <RoomList />
             </Route>
             <Route exact path="/rooms/new">
