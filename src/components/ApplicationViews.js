@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { GameList } from "./games/GameList"
 import { GameForm } from "./games/GameForm"
-
+import { RoomList } from "./rooms/RoomList"
 export const ApplicationViews = () => {
     return <>
         <main style={{
@@ -19,28 +19,28 @@ export const ApplicationViews = () => {
             {/* <Route exact path="/games/:gameId(\d+)/update">
                 <UpdateGameForm />
             </Route> */}
-            {/* <Route exact path="/rooms">
+            <Route exact path="/rooms">
                 <RoomList />
             </Route>
-            <Route exact path="/rooms/new">
+            {/* <Route exact path="/rooms/new">
                 <RoomForm />
-            </Route>
-            <Route exact path="/rooms/:roomId(\d+)/update">
+            </Route> */}
+            {/* <Route exact path="/rooms/:roomId(\d+)/update">
                 <UpdateRoomForm />
-            </Route>
-            <Route exact path="/meetUps">
+            </Route> */}
+            {/* <Route exact path="/meetUps">
                 <MeetUpList />
-            </Route>
-            <Route exact path="/meetUps/new">
+            </Route> */}
+            {/* <Route exact path="/meetUps/new">
                 <MeetUpForm />
-            </Route>
-            <Route exact path="/meetUps/:meetUpId(\d+)/update">
+            </Route> */}
+            {/* <Route exact path="/meetUps/:meetUpId(\d+)/update">
                 <UpdateMeetUpForm />
-            </Route>
-            <Route exact path="/admins">
+            </Route> */}
+            {/* <Route exact path="/admins">
                 <AdminList />
-            </Route>
-            <Route exact path="/admins/:adminId(\d+)/update">
+            </Route> */}
+            {/* <Route exact path="/admins/:adminId(\d+)/update">
                 <UpdateAdminForm />
             </Route> */}
 

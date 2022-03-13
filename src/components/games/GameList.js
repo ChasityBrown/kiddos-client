@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { getGames } from "./GameManager.js"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import './Games.css';
 
 export const GameList = (props) => {
     const [games, setGames] = useState([])
@@ -19,10 +20,13 @@ export const GameList = (props) => {
             >Register New Game</button>
             {
                 games.map(game => {
-                    return <section key={`game--${game.id}`} className="game">
-                        <div className="game__name">{game.name} added by {game.kid?.user?.username}</div>
+                    return <div class="row" key={`game--${game.id}`} className="game">
+                        <div class="column">
+                        <div class="card" className="game__name">{game.name}</div>
+                        <div className="game__kid"> Added by {game.kid?.user?.username}</div>
                         <div className="game__min_age">{game.min_age} yrs+</div>
-                    </section>
+                        </div>
+                    </div>
                 })
             }
         </article>
