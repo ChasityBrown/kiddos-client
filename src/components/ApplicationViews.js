@@ -3,6 +3,9 @@ import { Route } from "react-router-dom"
 import { GameList } from "./games/GameList"
 import { GameForm } from "./games/GameForm"
 import { RoomList } from "./rooms/RoomList"
+import { MeetUpList } from "./meetups/MeetUpList"
+
+
 export const ApplicationViews = () => {
     return <>
         <main style={{
@@ -28,9 +31,9 @@ export const ApplicationViews = () => {
             {/* <Route exact path="/rooms/:roomId(\d+)/update">
                 <UpdateRoomForm />
             </Route> */}
-            {/* <Route exact path="/meetUps">
+            <Route exact path="/meetUps">
                 <MeetUpList />
-            </Route> */}
+            </Route>
             {/* <Route exact path="/meetUps/new">
                 <MeetUpForm />
             </Route> */}

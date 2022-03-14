@@ -17,20 +17,20 @@
   }
   
   /* Remove extra left and right margins, due to padding in columns */
-  .game {margin: 0 -5px;}
+  .meetUp {margin: 0 -5px;}
   
-  .games {
+  .meetUps {
       background-color: aqua;
   }
   /* Clear floats after the columns */
-  .game:after {
+  .meetUp:after {
     content: "";
     display: table;
     clear: both;
   }
   
   /* Style the counter cards */
-  .game__name {
+  .meetUp__game {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;

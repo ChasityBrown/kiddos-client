@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
 
@@ -8,9 +8,12 @@ export const Register = () => {
     const username = useRef()
     const age = useRef()
     const password = useRef()
+    const parent = useRef()
+    const parent_username = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const history = useHistory()
+    const [toggle, setToggle] = useState(false)
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -21,7 +24,9 @@ export const Register = () => {
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
                 "age": age.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "parent": parent.current.checked,
+                "parent_username": parent_username.current.value
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -75,14 +80,23 @@ export const Register = () => {
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset>
+                    <label htmlFor="parent"> Parent? </label>
+                    <input ref={parent} type="checkbox" name="parent" className="form-control" placeholder="Parent" />
+                </fieldset>
+                <fieldset>
                     <label htmlFor="age"> Age </label>
                     <textarea ref={age} name="age" className="form-control" placeholder="How old are you?" />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="parent_username"> Please have your parent enter their username if you are a kid</label>
+                    <input ref={parent_username} type="text" name="parent_username" className="form-control" placeholder="Parent Username" />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
                 }}>
                     <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
                 </fieldset>
+                
             </form>
             <section className="link--register">
                 Already registered? <Link to="/login">Login</Link>
