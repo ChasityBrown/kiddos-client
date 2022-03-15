@@ -13,7 +13,6 @@ export const Register = () => {
     const verifyPassword = useRef()
     const passwordDialog = useRef()
     const history = useHistory()
-    const [toggle, setToggle] = useState(false)
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -81,7 +80,7 @@ export const Register = () => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="parent"> Parent? </label>
-                    <input ref={parent} type="checkbox" name="parent" className="form-control" placeholder="Parent" />
+                    <input ref={parent} type="checkbox" name="parent" className="form-control" placeholder="parent" />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="age"> Age </label>

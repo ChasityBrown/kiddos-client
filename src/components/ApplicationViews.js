@@ -4,7 +4,7 @@ import { GameList } from "./games/GameList"
 import { GameForm } from "./games/GameForm"
 import { RoomList } from "./rooms/RoomList"
 import { MeetUpList } from "./meetups/MeetUpList"
-
+import { AdminList } from "./admins/AdminList"
 
 export const ApplicationViews = () => {
     return <>
@@ -40,9 +40,9 @@ export const ApplicationViews = () => {
             {/* <Route exact path="/meetUps/:meetUpId(\d+)/update">
                 <UpdateMeetUpForm />
             </Route> */}
-            {/* <Route exact path="/admins">
+            <Route exact path="/admins">
                 <AdminList />
-            </Route> */}
+            </Route>
             {/* <Route exact path="/admins/:adminId(\d+)/update">
                 <UpdateAdminForm />
             </Route> */}
