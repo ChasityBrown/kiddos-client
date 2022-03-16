@@ -1,5 +1,5 @@
-export const getGames = () => {
-    return fetch("http://localhost:8000/games", {
+export const getParentGames = () => {
+    return fetch("http://localhost:8000/parents/listofgames", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
@@ -40,10 +40,10 @@ export const deleteGame = (game, id) => {
         },
         body: JSON.stringify(game)
     })
-        .then(getGames)
+        .then(getParentGames)
 }
-export const getMeetUps = () => {
-    return fetch("http://localhost:8000/meetUps", {
+export const getParentMeetUps = () => {
+    return fetch("http://localhost:8000/parents/listofmeetups", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
@@ -76,10 +76,10 @@ export const deleteMeetUp = (meetUp, id) => {
         },
         body: JSON.stringify(meetUp)
     })
-        .then(getMeetUps)
+        .then(getParentMeetUps)
 }
-export const getRooms = () => {
-    return fetch("http://localhost:8000/rooms", {
+export const getParentRooms = () => {
+    return fetch("http://localhost:8000/parents/listofrooms", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
@@ -123,5 +123,5 @@ export const deleteRoom = (room, id) => {
         },
         body: JSON.stringify(room)
     })
-        .then(getRooms)
+        .then(getParentRooms)
 }

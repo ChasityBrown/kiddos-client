@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getGames, getMeetUps, getRooms } from "./AdminManager.js"
+import { getParentGames, getParentMeetUps, getParentRooms } from "./AdminManager.js"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 export const AdminList = (props) => {
@@ -9,13 +9,13 @@ export const AdminList = (props) => {
     const history = useHistory()
 
     useEffect(() => {
-        getGames().then(data => setGames(data))
+        getParentGames().then(data => setGames(data))
     }, [])
     useEffect(() => {
-        getMeetUps().then(data => setMeetUps(data))
+        getParentMeetUps().then(data => setMeetUps(data))
     }, [])
     useEffect(() => {
-        getRooms().then(data => setRooms(data))
+        getParentRooms().then(data => setRooms(data))
     }, [])
 
     return (
@@ -25,17 +25,20 @@ export const AdminList = (props) => {
                 games.map(game => {
                     return <div key={`game--${game.id}`} className="admin">
                         <ul>
-                        <li className="admin__name">{game.name} Approved: {game.approved ? "true": "false"}</li>
+                            <li className="admin__name">{game.name} Approved: {game.approved ? "true" : "false"}</li>
                         </ul>
+                        
                     </div>
+
                 })
+
             }
             <h2>Rooms</h2>
             {
                 rooms.map(room => {
                     return <div key={`room--${room.id}`} className="admin">
                         <ul>
-                        <li className="admin__name">{room.name}</li>
+                            <li className="admin__name">{room.name}</li>
                         </ul>
                     </div>
                 })
@@ -45,12 +48,14 @@ export const AdminList = (props) => {
                 meetUps.map(meetUp => {
                     return <div key={`meetUp--${meetUp.id}`} className="admin">
                         <ul>
-                        <li className="admin__name">{meetUp.game?.name} Approved: {meetUp.approved ? "true": "false"}</li>
+                            <li className="admin__name">{meetUp.game?.name} Approved: {meetUp.approved ? "true" : "false"}</li>
                         </ul>
                     </div>
                 })
             }
-            <button>Make Changes</button>
+            <button onClick={() => {
+                            history.push({ pathname: `/admins/update` })
+                        }}>Make Changes</button>
         </article>
     )
 }

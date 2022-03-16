@@ -5,6 +5,7 @@ import { GameForm } from "./games/GameForm"
 import { RoomList } from "./rooms/RoomList"
 import { MeetUpList } from "./meetups/MeetUpList"
 import { AdminList } from "./admins/AdminList"
+import { UpdateAdminForm } from "./admins/UpdateAdminForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -43,9 +44,9 @@ export const ApplicationViews = () => {
             <Route exact path="/admins">
                 <AdminList />
             </Route>
-            {/* <Route exact path="/admins/:adminId(\d+)/update">
+            <Route exact path="/admins/update">
                 <UpdateAdminForm />
-            </Route> */}
+            </Route>
 
         </main>
     </>
