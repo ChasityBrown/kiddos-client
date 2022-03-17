@@ -21,8 +21,8 @@ export const getGameById = (id) => {
     }})
     .then(res => res.json())
 }
-export const updateGame = (game, id) => {
-    return fetch(`http://localhost:8000/games/${id}`, {
+export const updateParentGame = (game, id) => {
+    return fetch(`http://localhost:8000/parents/updategames/${id}`, {
         method: "PUT",
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
-import {getGameById, updateGame } from './AdminManager.js'
+import {getGameById, updateParentGame } from './AdminManager.js'
 
 
 export const UpdateAdminForm = () => {
@@ -70,7 +70,7 @@ export const UpdateAdminForm = () => {
                     }
 
                     // Send POST request to your API
-                    updateGame(game, gameId)
+                    updateParentGame(game, gameId)
                         .then(() => history.push("/admins"))
                 }}
                 className="btn btn-primary">Update</button>

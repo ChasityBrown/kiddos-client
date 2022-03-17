@@ -53,3 +53,27 @@ export const deleteMeetUp = (meetUp, id) => {
     })
         .then(getMeetUps)
 }
+export const getGames = () => {
+    return fetch("http://localhost:8000/games", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+export const getGameSystems = () => {
+    return fetch("http://localhost:8000/gamesystems", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+export const getRooms = () => {
+    return fetch("http://localhost:8000/rooms", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
