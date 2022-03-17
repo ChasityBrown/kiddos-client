@@ -13,8 +13,7 @@ export const RoomForm = () => {
         provide some default values.
     */
     const [currentRoom, setCurrentRoom] = useState({
-        name: "",
-        parent: 0
+        name: ""
     })
 
     // useEffect(() => {
@@ -52,8 +51,7 @@ export const RoomForm = () => {
                     evt.preventDefault()
 
                     const room = {
-                        name: currentRoom.name,
-                        parent: parseInt(currentRoom.parent)
+                        name: currentRoom.name
                     }
 
                     // Send POST request to your API
