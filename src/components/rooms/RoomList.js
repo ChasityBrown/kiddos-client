@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getRooms } from "./RoomManager.js"
+import { getRooms, unFaveRoom, faveRoom, deleteRoom} from "./RoomManager.js"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './Rooms.css';
 
@@ -22,7 +22,25 @@ export const RoomList = (props) => {
                 rooms.map(room => {
                     return <div class="row" key={`room--${room.id}`} className="room">
                         <div class="column">
-                        <div class="card" className="room__name">{room.name}</div>
+                            <div class="card" className="room__name">{room.name}</div>
+                            {
+                                room.faved ?
+                                    <button onClick={() => {
+                                        unFaveRoom(room.id)
+                                        .then(getRooms)
+                                        .then(res => setRooms(res))
+                                    }}>Don't Like</button>
+                                    : <button onClick={() => {
+                                        faveRoom(room.id)
+                                        .then(getRooms)
+                                        .then(res => setRooms(res))
+                                    }}>Like!</button>
+                            }
+                            <button onClick={() => {
+                                history.push({ pathname: `/rooms/${room.id}/update` })
+                            }}>Edit</button>
+                            <button onClick={() => deleteRoom(room, room.id).then(res => setRooms(res))
+                                .then(() => history.push("/rooms"))} >Delete</button>
                         </div>
                     </div>
                 })

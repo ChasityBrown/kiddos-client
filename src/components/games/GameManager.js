@@ -53,3 +53,23 @@ export const deleteGame = (game, id) => {
     })
         .then(getGames)
 }
+export const unFaveGame = (gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}/unfave_game`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(gameId)
+    })
+}
+export const faveGame = (gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}/fave_game`, {
+        method: "POST",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(gameId)
+    })
+}
