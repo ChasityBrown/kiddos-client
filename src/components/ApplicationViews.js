@@ -7,6 +7,7 @@ import { MeetUpList } from "./meetups/MeetUpList"
 import { AdminList } from "./admins/AdminList"
 import { UpdateAdminForm } from "./admins/UpdateAdminForm"
 import { MeetUpForm } from "./meetups/MeetUpForm"
+import { RoomForm } from "./rooms/RoomForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -27,9 +28,9 @@ export const ApplicationViews = () => {
             <Route exact path="/rooms">
                 <RoomList />
             </Route>
-            {/* <Route exact path="/rooms/new">
+            <Route exact path="/rooms/new">
                 <RoomForm />
-            </Route> */}
+            </Route>
             {/* <Route exact path="/rooms/:roomId(\d+)/update">
                 <UpdateRoomForm />
             </Route> */}
