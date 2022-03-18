@@ -17,10 +17,14 @@
   }
   
   /* Remove extra left and right margins, due to padding in columns */
-  .room {margin: 0 -5px;}
+  .row {
+      margin: 0 -5px;
+      grid-row: 4 / span 3;
+    }
   
   .rooms {
       background-color: aqua;
+      
   }
   /* Clear floats after the columns */
   .room:after {
@@ -30,7 +34,7 @@
   }
   
   /* Style the counter cards */
-  .room__name {
+  .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;

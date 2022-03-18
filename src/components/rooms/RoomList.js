@@ -20,9 +20,9 @@ export const RoomList = (props) => {
             >Register New Room</button>
             {
                 rooms.map(room => {
-                    return <div class="row" key={`room--${room.id}`} className="room">
+                    return <div class="row" key={`room--${room.id}`} >
                         <div class="column">
-                            <div class="card" className="room__name">{room.name}</div>
+                            <div class="card">{room.name}</div>
                             {
                                 room.faved ?
                                     <button onClick={() => {

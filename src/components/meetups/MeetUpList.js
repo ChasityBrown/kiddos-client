@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getMeetUps } from "./MeetUpManager.js"
+import { getMeetUps, joinMeetUp, leaveMeetUp } from "./MeetUpManager.js"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './MeetUps.css';
 
@@ -20,12 +20,22 @@ export const MeetUpList = (props) => {
             >Register New MeetUp</button>
             {
                 meetUps.map(meetUp => {
-                    return <div class="row" key={`meetUp--${meetUp.id}`} className="meetUp">
+                    return <div class="row" key={`meetUp--${meetUp.id}`}>
                         <div class="column">
-                        <div class="card" className="meetUp__game">{meetUp.game?.name}</div>
+                        <div class="card" >{meetUp.game?.name}</div>
                         <div className="meetUp__room"> Playing in Room: {meetUp.room?.name}</div>
                         <div className="meetUp__game_system">{meetUp.game_system?.name} </div>
-                        <button>Join</button>
+                        {
+                            meetUp.joined ?
+                            <button onClick={() => {leaveMeetUp(meetUp.id)
+                                .then(getMeetUps)
+                                .then(res => setMeetUps(res))
+                            }}>Leave</button>
+                            : <button onClick={() => {joinMeetUp(meetUp.id)
+                                .then(getMeetUps)
+                                .then(res => setMeetUps(res))
+                            }}>Join</button>
+                        }
                         </div>
                     </div>
                 })

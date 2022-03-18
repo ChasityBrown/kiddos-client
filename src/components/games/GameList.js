@@ -20,9 +20,9 @@ export const GameList = (props) => {
             >Register New Game</button>
             {
                 games.map(game => {
-                    return <section><div class="row" key={`game--${game.id}`} className="game">
+                    return <section><div class="row" key={`game--${game.id}`} >
                         <div class="column">
-                        <div class="card" className="game__name">{game.name}</div>
+                        <div class="card" >{game.name}</div>
                         <div className="game__kid"> Added by {game.kid?.user?.username}</div>
                         <div className="game__min_age">{game.min_age} yrs+</div>
                         {

@@ -77,3 +77,23 @@ export const getRooms = () => {
     })
         .then(response => response.json())
 }
+export const leaveMeetUp = (meetUpId) => {
+    return fetch(`http://localhost:8000/meetUps/${meetUpId}/leave`, {
+        method: "PUT",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(meetUpId)
+    })
+}
+export const joinMeetUp = (meetUpId) => {
+    return fetch(`http://localhost:8000/meetUps/${meetUpId}/signup`, {
+        method: "POST",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(meetUpId)
+    })
+}

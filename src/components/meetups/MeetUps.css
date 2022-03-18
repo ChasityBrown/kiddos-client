@@ -17,7 +17,7 @@
   }
   
   /* Remove extra left and right margins, due to padding in columns */
-  .meetUp {margin: 0 -5px;}
+  .row {margin: 0 -5px;}
   
   .meetUps {
       background-color: aqua;
@@ -30,7 +30,7 @@
   }
   
   /* Style the counter cards */
-  .meetUp__game {
+  .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;

@@ -18,7 +18,7 @@ export const UpdateRoomForm = () => {
         // TODO: Get the room types, then set the state
         getRoomById(roomId)
         .then(data => setCurrentRoom({
-            name: data.name.id
+            name: data.name
         }))
     }, [roomId])
 
