@@ -19,11 +19,12 @@ export const GameList = (props) => {
 
     return (
         <article className="games">
-            <button className="btn btn-2 btn-sep icon-create"
+            {
+                localStorage.is_staff == "true" ? "" :<button className="btn btn-2 btn-sep icon-create"
                 onClick={() => {
                     history.push({ pathname: "/games/new" })
                 }}
-            >Register New Game</button>
+            >Register New Game</button>}
             {
                 games.map(game => {
                     return <section><div class="row" key={`game--${game.id}`} >
