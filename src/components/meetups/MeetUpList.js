@@ -26,6 +26,7 @@ export const MeetUpList = (props) => {
                         <div className="meetUp__room"> Playing in Room: {meetUp.room?.name}</div>
                         <div className="meetUp__game_system">{meetUp.game_system?.name} </div>
                         {
+                            localStorage.is_staff == "true" ? "" :
                             meetUp.joined ?
                             <button onClick={() => {leaveMeetUp(meetUp.id)
                                 .then(getMeetUps)

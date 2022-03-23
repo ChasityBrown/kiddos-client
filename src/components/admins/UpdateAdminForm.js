@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
-import {getGameById, updateParentGame } from './AdminManager.js'
+import {getParentGameById, updateGame } from './AdminManager.js'
 
 
 export const UpdateAdminForm = () => {
@@ -12,14 +12,14 @@ export const UpdateAdminForm = () => {
         provide some default values.
     */
     const [currentGame, setCurrentGame] = useState({
-        name: 1,
-        approved: "",
+        name: "",
+        approved: false,
         min_age: 0
     })
 
     useEffect(() => {
         // TODO: Get the game types, then set the state
-        getGameById(gameId)
+        getParentGameById(gameId)
         .then(data => setCurrentGame({
             name: data.name,
             approved: data.approved,
@@ -40,7 +40,16 @@ export const UpdateAdminForm = () => {
             <h2 className="gameForm__min_age">Update Game</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="min_age">Min_age: </label>
+                    <label htmlFor="name">Game Name: </label>
+                    <input type="text" name="name" required autoFocus className="form-control"
+                        value={currentGame.name}
+                        onChange={changeGameState}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="min_age">Min age: </label>
                     <input type="text" name="min_age" required autoFocus className="form-control"
                         value={currentGame.min_age}
                         onChange={changeGameState}
@@ -64,13 +73,13 @@ export const UpdateAdminForm = () => {
                     evt.preventDefault()
 
                     const game = {
-                        min_age: currentGame.min_age,
-                        approved: parseInt(currentGame.approved),
-                        name: parseInt(currentGame.name)
+                        min_age: parseInt(currentGame.min_age),
+                        approved: currentGame.approved,
+                        name: currentGame.name
                     }
 
                     // Send POST request to your API
-                    updateParentGame(game, gameId)
+                    updateGame(game, gameId)
                         .then(() => history.push("/admins"))
                 }}
                 className="btn btn-primary">Update</button>

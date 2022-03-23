@@ -9,6 +9,7 @@ import { UpdateAdminForm } from "./admins/UpdateAdminForm"
 import { MeetUpForm } from "./meetups/MeetUpForm"
 import { RoomForm } from "./rooms/RoomForm"
 import { UpdateRoomForm } from "./rooms/UpdateRoomForm"
+import { HomePageList } from "./homepage/HomePage"
 
 export const ApplicationViews = () => {
     return <>
@@ -19,6 +20,9 @@ export const ApplicationViews = () => {
         }}>
             <Route exact path="/games">
                 <GameList />
+            </Route>
+            <Route exact path="/">
+                <HomePageList />
             </Route>
             <Route exact path="/games/new">
                 <GameForm />
@@ -47,7 +51,7 @@ export const ApplicationViews = () => {
             <Route exact path="/admins">
                 <AdminList />
             </Route>
-            <Route exact path="/admins/update">
+            <Route exact path="/admins/:gameId(\d+)/update">
                 <UpdateAdminForm />
             </Route>
 

@@ -16,7 +16,9 @@ export const NavBar = () => {
                 <Link className="nav-link" to="/meetUps">Meet Ups</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to="/admins">Admin</Link>
+                {
+                    localStorage.is_staff == "false" ? "" :
+                <Link className="nav-link" to="/admins">Admin</Link>}
             </li>
             {
                 (localStorage.getItem("lu_token") !== null) ?
@@ -24,6 +26,7 @@ export const NavBar = () => {
                         <button className="nav-link fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("lu_token")
+                                localStorage.removeItem("user_id")
                                 history.push({ pathname: "/" })
                             }}
                         >Logout</button>

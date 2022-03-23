@@ -24,6 +24,7 @@ export const RoomList = (props) => {
                         <div class="column">
                             <div class="card">{room.name}</div>
                             {
+                                localStorage.is_staff == "true" ? "" :
                                 room.faved ?
                                     <button onClick={() => {
                                         unFaveRoom(room.id)
@@ -36,11 +37,13 @@ export const RoomList = (props) => {
                                         .then(res => setRooms(res))
                                     }}>Like!</button>
                             }
-                            <button onClick={() => {
+                            {
+                                localStorage.is_staff == "false" ? "" :
+                            <div><button onClick={() => {
                                 history.push({ pathname: `/rooms/${room.id}/update` })
                             }}>Edit</button>
                             <button onClick={() => deleteRoom(room, room.id).then(res => setRooms(res))
-                                .then(() => history.push("/rooms"))} >Delete</button>
+                                .then(() => history.push("/rooms"))} >Delete</button></div> }
                         </div>
                     </div>
                 })

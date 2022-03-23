@@ -14,15 +14,25 @@ export const getGameTypes = () => {
     })
         .then(res => res.json())
 }
-export const getGameById = (id) => {
-    return fetch(`http://localhost:8000/games/${id}`,{
-    headers:{
+export const getParentGameById = (id) => {
+    return fetch(`http://localhost:8000/parents/gamebyid/${id}`,{
+        headers:{
         "Authorization": `Token ${localStorage.getItem("lu_token")}`
     }})
     .then(res => res.json())
 }
 export const updateParentGame = (game, id) => {
     return fetch(`http://localhost:8000/parents/updategames/${id}`, {
+        method: "PUT",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(game)
+     })
+}
+export const updateGame = (game, gameId) => {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
         method: "PUT",
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,

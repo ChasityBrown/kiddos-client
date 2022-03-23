@@ -6,6 +6,14 @@ export const getGames = () => {
     })
         .then(response => response.json())
 }
+export const getKids = () => {
+    return fetch("http://localhost:8000/kids", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
 export const createGame = (game) => {
     return fetch("http://localhost:8000/games", {
         method: "POST",

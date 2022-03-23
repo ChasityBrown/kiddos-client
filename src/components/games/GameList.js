@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react"
-import { getGames, unFaveGame, faveGame } from "./GameManager.js"
+import { getGames, unFaveGame, faveGame, getKids } from "./GameManager.js"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './Games.css';
 
 export const GameList = (props) => {
     const [games, setGames] = useState([])
+    const [kids, setKids] = useState([])
     const history = useHistory()
 
     useEffect(() => {
         getGames().then(data => setGames(data))
     }, [])
+
+    useEffect(() => {
+        getKids().then(data => setKids(data))
+    }, [])
+
 
     return (
         <article className="games">
@@ -24,8 +30,10 @@ export const GameList = (props) => {
                         <div class="column">
                         <div class="card" >{game.name}</div>
                         <div className="game__kid"> Added by {game.kid?.user?.username}</div>
-                        <div className="game__min_age">{game.min_age} yrs+</div>
+                        {/* <div className="game__min_age">{game.min_age} yrs+</div> */}
+                        
                         {
+                            localStorage.is_staff == "true" ? "" :
                             game.faved ?
                             <button onClick={() => {unFaveGame(game.id)
                                 .then(getGames)
@@ -36,6 +44,7 @@ export const GameList = (props) => {
                                 .then(res => setGames(res))
                             }}>Like</button>
                         }
+                        
                         </div>
                     </div></section>
                 })

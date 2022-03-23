@@ -4,12 +4,14 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { Link } from "react-router-dom"
 
 export const Kiddos = () => (
     <>
         <Route render={() => {
             if (localStorage.getItem("lu_token")) {
                 return <>
+                <Link className="nav-link" to="/"><h1>Gaming for Kiddos</h1></Link>
                     <Route>
                         <NavBar />
                         <ApplicationViews />

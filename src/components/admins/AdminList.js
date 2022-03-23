@@ -27,7 +27,9 @@ export const AdminList = (props) => {
                         <ul>
                             <li className="admin__name">{game.name} Approved: {game.approved ? "true" : "false"}</li>
                         </ul>
-                        
+                        <button onClick={() => {
+                            history.push({ pathname: `/admins/${game.id}/update` })
+                        }}>Make Changes</button>
                     </div>
 
                 })
@@ -50,12 +52,13 @@ export const AdminList = (props) => {
                         <ul>
                             <li className="admin__name">{meetUp.game?.name} Approved: {meetUp.approved ? "true" : "false"}</li>
                         </ul>
+                        <button onClick={() => {
+                            history.push({ pathname: `/admins/${meetUp.id}/update` })
+                        }}>Make Changes</button>
                     </div>
                 })
             }
-            <button onClick={() => {
-                            history.push({ pathname: `/admins/update` })
-                        }}>Make Changes</button>
+            
         </article>
     )
 }
